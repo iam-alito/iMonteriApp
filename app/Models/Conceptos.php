@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 /**
  * Class Conceptos
  * @package App\Models
- * @version April 7, 2018, 10:39 pm UTC
+ * @version April 8, 2018, 3:18 pm UTC
  *
  * @property char codigo
  * @property mediumText descripcion
@@ -18,12 +18,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Conceptos extends Model
 {
-    use SoftDeletes;
+    
 
     public $table = 'conceptos';
     
 
-    protected $dates = ['deleted_at'];
+    
 
 
     public $fillable = [

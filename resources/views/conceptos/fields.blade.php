@@ -12,7 +12,7 @@
 
 <!-- Tipo Conceptos Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tipo_conceptos_id', 'Tipo Conceptos:') !!}
+    {!! Form::label('tipo_conceptos_id', 'Tipo Concepto:') !!}
     {!! Form::select('tipo_conceptos_id',$datos['tipos'], null, ['class' => 'form-control']) !!}
 </div>
 
@@ -22,15 +22,8 @@
     {!! Form::select('estado_id',$datos['estados'], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Users Id Field -->
-<div class="form-group col-sm-6" style="display: none;">
-    {!! Form::label('users_id', 'Users Id:') !!}
-    {!! Form::text('users_id',Auth::id(), ['class' => 'form-control']) !!}
-</div>
-
-
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('conceptos.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('conceptos.index') !!}" class="btn btn-default">Cancelar</a>
 </div>

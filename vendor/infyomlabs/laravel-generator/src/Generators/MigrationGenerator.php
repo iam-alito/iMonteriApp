@@ -76,7 +76,7 @@ class MigrationGenerator extends BaseGenerator
         }
 
         if ($this->commandData->getOption('softDelete')) {
-            $fields[] = '$table->softDeletes();';
+            //$fields[] = '$table->softDeletes();';
         }
 
         return implode(infy_nl_tab(1, 3), array_merge($fields, $foreignKeys));

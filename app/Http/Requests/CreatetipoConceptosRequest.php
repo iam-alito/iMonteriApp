@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tipoConceptos;
+use App\Models\TipoConceptos;
 
-class CreatetipoConceptosRequest extends FormRequest
+class CreateTipoConceptosRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatetipoConceptosRequest extends FormRequest
      */
     public function rules()
     {
-        return tipoConceptos::$rules;
+        return TipoConceptos::$rules;
     }
 }

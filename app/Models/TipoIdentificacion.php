@@ -3,24 +3,24 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 /**
  * Class TipoIdentificacion
  * @package App\Models
- * @version April 8, 2018, 1:58 am UTC
+ * @version April 8, 2018, 4:51 pm UTC
  *
  * @property mediumText descripcion
  * @property integer users_id
  */
 class TipoIdentificacion extends Model
 {
-    use SoftDeletes;
+    
 
     public $table = 'tipo_identificacions';
     
 
-    protected $dates = ['deleted_at'];
+    
 
 
     public $fillable = [

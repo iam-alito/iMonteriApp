@@ -2,34 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetipoConceptosRequest;
-use App\Http\Requests\UpdatetipoConceptosRequest;
-use App\Repositories\tipoConceptosRepository;
+use App\Http\Requests\CreateTipoConceptosRequest;
+use App\Http\Requests\UpdateTipoConceptosRequest;
+use App\Repositories\TipoConceptosRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class tipoConceptosController extends AppBaseController
+class TipoConceptosController extends AppBaseController
 {
-    /** @var  tipoConceptosRepository */
+    /** @var  TipoConceptosRepository */
     private $tipoConceptosRepository;
 
-    public function __construct(tipoConceptosRepository $tipoConceptosRepo)
+    public function __construct(TipoConceptosRepository $tipoConceptosRepo)
     {
         $this->tipoConceptosRepository = $tipoConceptosRepo;
     }
 
     /**
-     * Display a listing of the tipoConceptos.
+     * Display a listing of the TipoConceptos.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
+        $this->tipoConceptosRepository->pushCriteria(new RequestCriteria($request));
+        $tipoConceptos = $this->tipoConceptosRepository->all();
+
         $tipoConceptos =  DB::table('tipo_conceptos')
                 ->join('users', 'tipo_conceptos.users_id', '=', 'users.id')
                 ->selectRaw('tipo_conceptos.*,users.name')
@@ -40,7 +45,7 @@ class tipoConceptosController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new tipoConceptos.
+     * Show the form for creating a new TipoConceptos.
      *
      * @return Response
      */
@@ -50,25 +55,26 @@ class tipoConceptosController extends AppBaseController
     }
 
     /**
-     * Store a newly created tipoConceptos in storage.
+     * Store a newly created TipoConceptos in storage.
      *
-     * @param CreatetipoConceptosRequest $request
+     * @param CreateTipoConceptosRequest $request
      *
      * @return Response
      */
-    public function store(CreatetipoConceptosRequest $request)
+    public function store(CreateTipoConceptosRequest $request)
     {
         $input = $request->all();
+        $input['users_id']=Auth::id();
 
         $tipoConceptos = $this->tipoConceptosRepository->create($input);
 
-        Flash::success('Tipo Conceptos Guardado exitosamente.');
+        Flash::success('Tipo Conceptos saved successfully.');
 
         return redirect(route('tipoConceptos.index'));
     }
 
     /**
-     * Display the specified tipoConceptos.
+     * Display the specified TipoConceptos.
      *
      * @param  int $id
      *
@@ -88,7 +94,7 @@ class tipoConceptosController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified tipoConceptos.
+     * Show the form for editing the specified TipoConceptos.
      *
      * @param  int $id
      *
@@ -108,14 +114,14 @@ class tipoConceptosController extends AppBaseController
     }
 
     /**
-     * Update the specified tipoConceptos in storage.
+     * Update the specified TipoConceptos in storage.
      *
      * @param  int              $id
-     * @param UpdatetipoConceptosRequest $request
+     * @param UpdateTipoConceptosRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetipoConceptosRequest $request)
+    public function update($id, UpdateTipoConceptosRequest $request)
     {
         $tipoConceptos = $this->tipoConceptosRepository->findWithoutFail($id);
 
@@ -127,13 +133,13 @@ class tipoConceptosController extends AppBaseController
 
         $tipoConceptos = $this->tipoConceptosRepository->update($request->all(), $id);
 
-        Flash::success('Tipo Conceptos Actualizado exitosamente.');
+        Flash::success('Tipo Conceptos updated successfully.');
 
         return redirect(route('tipoConceptos.index'));
     }
 
     /**
-     * Remove the specified tipoConceptos from storage.
+     * Remove the specified TipoConceptos from storage.
      *
      * @param  int $id
      *
@@ -151,7 +157,7 @@ class tipoConceptosController extends AppBaseController
 
         $this->tipoConceptosRepository->delete($id);
 
-        Flash::success('Tipo Conceptos Borrado exitosamente.');
+        Flash::success('Tipo Conceptos deleted successfully.');
 
         return redirect(route('tipoConceptos.index'));
     }

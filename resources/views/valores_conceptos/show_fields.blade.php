@@ -1,30 +1,36 @@
 <!-- Id Field -->
 <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
-    <p>{!! $valoresConceptos->id !!}</p>
+    <p>{!! $valoresConcepto->id !!}</p>
 </div>
 
-<!-- Conceptos Id Field -->
+<!-- Concepto Id Field -->
 <div class="form-group">
-    {!! Form::label('conceptos_id', 'Conceptos Id:') !!}
-    <p>{!! $valoresConceptos->conceptos_id !!}</p>
+    {!! Form::label('concepto_id', 'Concepto Id:') !!}
+    <p>{!! $valoresConcepto->concepto_id !!}</p>
 </div>
 
 <!-- Valor Field -->
 <div class="form-group">
     {!! Form::label('valor', 'Valor:') !!}
-    <p>{!! $valoresConceptos->valor !!}</p>
+    <p>{!! $valoresConcepto->valor !!}</p>
+</div>
+
+<!-- Users Id Field -->
+<div class="form-group">
+    {!! Form::label('users_id', 'Users Id:') !!}
+    <p>{!! $valoresConcepto->users_id !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $valoresConceptos->created_at !!}</p>
+    <p>{!! $valoresConcepto->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
     {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $valoresConceptos->updated_at !!}</p>
+    <p>{!! $valoresConcepto->updated_at !!}</p>
 </div>
 

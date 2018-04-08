@@ -1,14 +1,32 @@
 php artisan infyom:scaffold $MODEL_NAME
 
+*Roles
+	descripcion char,100 text
+		required
+	users_id integer:unsigned:foreign,users,id hidden
+
+*Permisos
+	modulo char,100 text
+	descripcion char,100 textarea
+	roles_id integer:unsigned:foreign,roles,id select
+	users_id integer:unsigned:foreign,users,id hidden
+
+
+*UsuariosRol
+	roles_id integer:unsigned:foreign,roles,id select
+		required
+	users_id integer:unsigned:foreign,users,id select
+		required
+
 *Estados
 	descripcion char,100 text
 		required
-	users_id integer:unsigned:foreign,users,id text
+	users_id integer:unsigned:foreign,users,id hidden
 
-*tipoConceptos
+*TipoConceptos
 	descripcion mediumText textarea
 		required
-	users_id integer:unsigned:foreign,users,id text
+	users_id integer:unsigned:foreign,users,id hidden
 
 *Conceptos
 	codigo char,100 text
@@ -19,13 +37,14 @@ php artisan infyom:scaffold $MODEL_NAME
 		required
 	estado_id integer:unsigned:foreign,estados,id select
 		required
-	users_id integer:unsigned:foreign,users,id text
+	users_id integer:unsigned:foreign,users,id hidden
 
-Valores_concepto
+*ValoresConcepto
 	concepto_id integer:unsigned:foreign,conceptos,id select
 		required
-	valor integer,99 number
-		required 
+	valor integer number
+		required
+	users_id integer:unsigned:foreign,users,id hidden
 
 Combos
 	concepto_combo
@@ -36,84 +55,89 @@ Combos
 *TipoIdentificacion
 	descripcion mediumText textarea
 		required
-	users_id integer:unsigned:foreign,users,id text
+	users_id integer:unsigned:foreign,users,id hidden
 
-personas
-	nombre
-	apellido
-	tipo_identificacion
-	identificacion
-	fecha_nacimiento
-	direccion
-	telefono2
-	telefono1
-	usuario
+*Personas
+	nombre char,100 text
+		required
+	apellido char,100 text
+		required
+	tipo_identificacion_id integer:unsigned:foreign,tipo_identificacions,id select
+		required
+	identificacion char,100 text
+		required
+	fecha_nacimiento date date
+	direccion char,100 text
+	telefono2 char,100 number
+	telefono1 char,100 number
+	users_id integer:unsigned:foreign,users,id hidden
 
 vehiculos
 	persona
 	placa
 	modelo
 	color
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 galeria_vehiculos
 	vehiculo
 	foto
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 equipos
 	codigo
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 equipo_personas
 	equipo
 	persona
 	estado
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 estado_factura
 	descripcion
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 estado_comanda
 	descripcion
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 comanda
 	persona
 	vehiculo
-	usuario
 	estado
+	users_id integer:unsigned:foreign,users,id hidden
 
 comanda_detalle
 	comanda
 	concepto
 	descuento 
 	valor
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 descuento
 	codigo
 	descripcion
 	porcentaje
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 lavados
 	comanda
 	equipo
+	users_id integer:unsigned:foreign,users,id hidden
 
 faturacion
 	persona
 	vehiculo
-	usuario
 	estado
+	users_id integer:unsigned:foreign,users,id hidden
 
 faturacion_detalle
 	factura
 	concepto
 	descuento 
 	valor
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 proveedores
 	codigo
@@ -123,19 +147,19 @@ proveedores
 	direccion
 	telefono2
 	telefono1
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 egresos_diario
 	descripcion
 	proveedor 
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 remision_detalle
 	egreso
 	concepto
 	descuento 
 	valor
-	usuario
+	users_id integer:unsigned:foreign,users,id hidden
 
 
 

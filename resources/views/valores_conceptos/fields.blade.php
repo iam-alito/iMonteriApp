@@ -1,7 +1,7 @@
-<!-- Conceptos Id Field -->
+<!-- Concepto Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('conceptos_id', 'Conceptos:') !!}
-    {!! Form::select('conceptos_id',$datos['conceptos'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('concepto_id', 'Concepto Id:') !!}
+    {!! Form::select('concepto_id', ], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Valor Field -->
@@ -12,6 +12,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('valoresConceptos.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('valoresConceptos.index') !!}" class="btn btn-default">Cancelar</a>
 </div>

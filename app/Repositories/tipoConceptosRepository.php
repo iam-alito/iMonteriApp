@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\tipoConceptos;
+use App\Models\TipoConceptos;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class tipoConceptosRepository
+ * Class TipoConceptosRepository
  * @package App\Repositories
- * @version April 7, 2018, 10:30 pm UTC
+ * @version April 8, 2018, 3:16 pm UTC
  *
- * @method tipoConceptos findWithoutFail($id, $columns = ['*'])
- * @method tipoConceptos find($id, $columns = ['*'])
- * @method tipoConceptos first($columns = ['*'])
+ * @method TipoConceptos findWithoutFail($id, $columns = ['*'])
+ * @method TipoConceptos find($id, $columns = ['*'])
+ * @method TipoConceptos first($columns = ['*'])
 */
-class tipoConceptosRepository extends BaseRepository
+class TipoConceptosRepository extends BaseRepository
 {
     /**
      * @var array
@@ -29,6 +29,6 @@ class tipoConceptosRepository extends BaseRepository
      **/
     public function model()
     {
-        return tipoConceptos::class;
+        return TipoConceptos::class;
     }
 }

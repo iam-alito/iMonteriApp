@@ -3,24 +3,24 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 /**
- * Class tipoConceptos
+ * Class TipoConceptos
  * @package App\Models
- * @version April 7, 2018, 10:30 pm UTC
+ * @version April 8, 2018, 3:16 pm UTC
  *
  * @property mediumText descripcion
  * @property integer users_id
  */
-class tipoConceptos extends Model
+class TipoConceptos extends Model
 {
-    use SoftDeletes;
+    
 
     public $table = 'tipo_conceptos';
     
 
-    protected $dates = ['deleted_at'];
+    
 
 
     public $fillable = [

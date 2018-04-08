@@ -21,16 +21,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 
+Route::resource('roles', 'RolesController');
 
+Route::resource('usuariosRols', 'UsuariosRolController');
 
-Route::resource('estados', 'EstadoController');
+Route::resource('usuarios', 'UsuariosController');
 
-Route::resource('tipoConceptos', 'tipoConceptosController');
+Route::resource('estados', 'EstadosController');
 
+Route::resource('tipoConceptos', 'TipoConceptosController');
 
 Route::resource('conceptos', 'ConceptosController');
 
+Route::resource('permisos', 'PermisosController');
 
-Route::resource('valoresConceptos', 'ValoresConceptosController');
+Route::resource('valoresConceptos', 'ValoresConceptoController');
 
 Route::resource('tipoIdentificacions', 'TipoIdentificacionController');
+
+Route::resource('personas', 'PersonasController');

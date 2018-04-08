@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class TipoIdentificacionRepository
  * @package App\Repositories
- * @version April 8, 2018, 1:58 am UTC
+ * @version April 8, 2018, 4:51 pm UTC
  *
  * @method TipoIdentificacion findWithoutFail($id, $columns = ['*'])
  * @method TipoIdentificacion find($id, $columns = ['*'])

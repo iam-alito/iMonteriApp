@@ -25,6 +25,8 @@
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <style>
 
     </style>
@@ -32,6 +34,7 @@
 </head>
 
 <body class="skin-blue sidebar-mini">
+    <input type="hidden" id="slide" value="1">
 @if (!Auth::guest())
     <div class="wrapper">
         <!-- Main Header -->
@@ -163,6 +166,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+    <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $( ".sidebar-toggle" ).click(function() {
+            open();
+        });
+
+        function open(){
+            var x=$('#slide').val();
+            if(x==1){
+                $('#slide').val(0);
+                $( "body" ).addClass("sidebar-collapse");
+                $( "body" ).addClass("sidebar-open");
+                $( "body" ).removeClass("sidebar-close");
+            }
+            if(x==0){
+                $('#slide').val(1);
+                $( "body" ).addClass("sidebar-close");
+                $( "body" ).removeClass("sidebar-collapse");
+                $( "body" ).removeClass("sidebar-open");
+            }
+            
+        }
+
+        $(document).ready( function () {
+            $('.table').DataTable();
+        } );
+
+    </script>
     @yield('scripts')
 </body>
 </html>

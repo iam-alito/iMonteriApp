@@ -18,4 +18,5 @@ return array(
     'e7223560d890eab89cda23685e711e2c' => $vendorDir . '/psy/psysh/src/Psy/functions.php',
     'a28599dc506da421718fad75955a4b9d' => $vendorDir . '/infyomlabs/laravel-generator/src/helpers.php',
     'f18cc91337d49233e5754e93f3ed9ec3' => $vendorDir . '/laravelcollective/html/src/helpers.php',
+    'be2dabd89e6571c763d3c521b1c3701e' => $baseDir . '/app/Helpers.php',
 );

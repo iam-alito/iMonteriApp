@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Valores Conceptos
+            Valores Concepto
         </h1>
    </section>
    <div class="content">
@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($datos['valoresConceptos'], ['route' => ['valoresConceptos.update', $datos['valoresConceptos']->id], 'method' => 'patch']) !!}
+                   {!! Form::model($valoresConcepto, ['route' => ['valoresConceptos.update', $valoresConcepto->id], 'method' => 'patch']) !!}
 
                         @include('valores_conceptos.fields')
 

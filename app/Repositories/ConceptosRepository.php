@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class ConceptosRepository
  * @package App\Repositories
- * @version April 7, 2018, 10:39 pm UTC
+ * @version April 8, 2018, 3:18 pm UTC
  *
  * @method Conceptos findWithoutFail($id, $columns = ['*'])
  * @method Conceptos find($id, $columns = ['*'])

@@ -11,8 +11,9 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\tipoConceptos;
-use App\Models\Estado;
+use App\Models\Estados;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ConceptosController extends AppBaseController
 {
@@ -51,7 +52,7 @@ class ConceptosController extends AppBaseController
     public function create()
     {
         $tipo_conceptos=tipoConceptos::pluck('descripcion','id');
-        $estados=Estado::pluck('descripcion','id');
+        $estados=Estados::pluck('descripcion','id');
         $datos = ['tipos' => $tipo_conceptos, 'estados' => $estados];
         return view('conceptos.create')->with('datos', $datos);
     }
@@ -66,10 +67,11 @@ class ConceptosController extends AppBaseController
     public function store(CreateConceptosRequest $request)
     {
         $input = $request->all();
-
+        $input['users_id']=Auth::id();
+        
         $conceptos = $this->conceptosRepository->create($input);
 
-        Flash::success('Conceptos Guardado exitosamente.');
+        Flash::success('Conceptos saved successfully.');
 
         return redirect(route('conceptos.index'));
     }
@@ -112,11 +114,9 @@ class ConceptosController extends AppBaseController
         }
 
         $tipo_conceptos=tipoConceptos::pluck('descripcion','id');
-        $estados=Estado::pluck('descripcion','id');
+        $estados=Estados::pluck('descripcion','id');
         $datos = ['tipos' => $tipo_conceptos, 'estados' => $estados,'conceptos'=> $conceptos];
         return view('conceptos.edit')->with('datos', $datos);
-
-        //return view('conceptos.edit')->with('conceptos', $conceptos);
     }
 
     /**
@@ -139,7 +139,7 @@ class ConceptosController extends AppBaseController
 
         $conceptos = $this->conceptosRepository->update($request->all(), $id);
 
-        Flash::success('Conceptos Actualizado exitosamente.');
+        Flash::success('Conceptos updated successfully.');
 
         return redirect(route('conceptos.index'));
     }
@@ -163,7 +163,7 @@ class ConceptosController extends AppBaseController
 
         $this->conceptosRepository->delete($id);
 
-        Flash::success('Conceptos Borrado exitosamente.');
+        Flash::success('Conceptos deleted successfully.');
 
         return redirect(route('conceptos.index'));
     }
