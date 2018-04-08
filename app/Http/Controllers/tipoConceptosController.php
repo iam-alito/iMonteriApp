@@ -62,7 +62,7 @@ class tipoConceptosController extends AppBaseController
 
         $tipoConceptos = $this->tipoConceptosRepository->create($input);
 
-        Flash::success('Tipo Conceptos saved successfully.');
+        Flash::success('Tipo Conceptos Guardado exitosamente.');
 
         return redirect(route('tipoConceptos.index'));
     }
@@ -127,7 +127,7 @@ class tipoConceptosController extends AppBaseController
 
         $tipoConceptos = $this->tipoConceptosRepository->update($request->all(), $id);
 
-        Flash::success('Tipo Conceptos updated successfully.');
+        Flash::success('Tipo Conceptos Actualizado exitosamente.');
 
         return redirect(route('tipoConceptos.index'));
     }
@@ -151,7 +151,7 @@ class tipoConceptosController extends AppBaseController
 
         $this->tipoConceptosRepository->delete($id);
 
-        Flash::success('Tipo Conceptos deleted successfully.');
+        Flash::success('Tipo Conceptos Borrado exitosamente.');
 
         return redirect(route('tipoConceptos.index'));
     }
