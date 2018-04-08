@@ -1,14 +1,16 @@
-Estados
+php artisan infyom:scaffold $MODEL_NAME
+
+*Estados
 	descripcion char,100 text
 		required
 	users_id integer:unsigned:foreign,users,id text
 
-tipoConceptos
+*tipoConceptos
 	descripcion mediumText textarea
 		required
 	users_id integer:unsigned:foreign,users,id text
 
-Conceptos
+*Conceptos
 	codigo char,100 text
 		required
 	descripcion mediumText textarea
@@ -19,9 +21,11 @@ Conceptos
 		required
 	users_id integer:unsigned:foreign,users,id text
 
-valores
-	concepto
-	valor
+Valores_concepto
+	concepto_id integer:unsigned:foreign,conceptos,id select
+		required
+	valor integer,99 number
+		required 
 
 combos
 	concepto_combo

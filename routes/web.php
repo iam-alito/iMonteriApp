@@ -29,3 +29,6 @@ Route::resource('tipoConceptos', 'tipoConceptosController');
 
 
 Route::resource('conceptos', 'ConceptosController');
+
+
+Route::resource('valoresConceptos', 'ValoresConceptosController');

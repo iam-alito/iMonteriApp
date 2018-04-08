@@ -9,3 +9,7 @@
     <a href="{!! route('conceptos.index') !!}"><i class="fa fa-edit"></i><span>Conceptos</span></a>
 </li>
 
+<li class="{{ Request::is('valoresConceptos*') ? 'active' : '' }}">
+    <a href="{!! route('valoresConceptos.index') !!}"><i class="fa fa-edit"></i><span>Valores Conceptos</span></a>
+</li>
+
