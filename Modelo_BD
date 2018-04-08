@@ -36,7 +36,7 @@ combos
 TipoIdentificacion
 	descripcion mediumText textarea
 		required
-	usuario
+	users_id integer:unsigned:foreign,users,id text
 
 personas
 	nombre
