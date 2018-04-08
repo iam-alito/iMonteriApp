@@ -27,15 +27,19 @@ Valores_concepto
 	valor integer,99 number
 		required 
 
-combos
+Combos
 	concepto_combo
 	concepto
 	estado
 	usuario
 
 TipoIdentificacion
+<<<<<<< HEAD
 	descripcion mediumText textarea
 		required
+=======
+	descripcion
+>>>>>>> cb86bf128f414c723eec797e82fe38d647298658
 	usuario
 
 personas
