@@ -33,7 +33,7 @@ Combos
 	estado
 	usuario
 
-TipoIdentificacion
+*TipoIdentificacion
 	descripcion mediumText textarea
 		required
 	users_id integer:unsigned:foreign,users,id text
