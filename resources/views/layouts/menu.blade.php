@@ -13,3 +13,7 @@
     <a href="{!! route('valoresConceptos.index') !!}"><i class="fa fa-edit"></i><span>Valores Conceptos</span></a>
 </li>
 
+<li class="{{ Request::is('tipoIdentificacions*') ? 'active' : '' }}">
+    <a href="{!! route('tipoIdentificacions.index') !!}"><i class="fa fa-edit"></i><span>Tipo Identificacions</span></a>
+</li>
+

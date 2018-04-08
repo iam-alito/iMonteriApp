@@ -32,3 +32,5 @@ Route::resource('conceptos', 'ConceptosController');
 
 
 Route::resource('valoresConceptos', 'ValoresConceptosController');
+
+Route::resource('tipoIdentificacions', 'TipoIdentificacionController');

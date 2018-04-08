@@ -33,8 +33,9 @@ combos
 	estado
 	usuario
 
-tipo_identificacion
-	descripcion
+TipoIdentificacion
+	descripcion mediumText textarea
+		required
 	usuario
 
 personas
