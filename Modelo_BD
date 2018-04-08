@@ -34,17 +34,9 @@ Combos
 	usuario
 
 TipoIdentificacion
-<<<<<<< HEAD
 	descripcion mediumText textarea
 		required
-<<<<<<< HEAD
 	users_id integer:unsigned:foreign,users,id text
-=======
-=======
-	descripcion
->>>>>>> cb86bf128f414c723eec797e82fe38d647298658
-	usuario
->>>>>>> 1fd57253c16a934ce55338486020a6d6e2a11d07
 
 personas
 	nombre
