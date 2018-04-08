@@ -1,0 +1,146 @@
+Estados
+	descripcion char,100 text
+		required
+	users_id integer:unsigned:foreign,users,id text
+
+tipoConceptos
+	descripcion mediumText textarea
+		required
+	users_id integer:unsigned:foreign,users,id text
+
+Conceptos
+	codigo char,100 text
+		required
+	descripcion mediumText textarea
+		required
+	tipo_conceptos_id integer:unsigned:foreign,tipo_conceptos,id select
+		required
+	estado_id integer:unsigned:foreign,estados,id select
+		required
+	users_id integer:unsigned:foreign,users,id text
+
+valores
+	concepto
+	valor
+
+combos
+	concepto_combo
+	concepto
+	estado
+	usuario
+
+tipo_identificacion
+	descripcion
+	usuario
+
+personas
+	nombre
+	apellido
+	tipo_identificacion
+	identificacion
+	fecha_nacimiento
+	direccion
+	telefono2
+	telefono1
+	usuario
+
+vehiculos
+	persona
+	placa
+	modelo
+	color
+	usuario
+
+galeria_vehiculos
+	vehiculo
+	foto
+	usuario
+
+equipos
+	codigo
+	usuario
+
+equipo_personas
+	equipo
+	persona
+	estado
+	usuario
+
+estado_factura
+	descripcion
+	usuario
+
+estado_comanda
+	descripcion
+	usuario
+
+comanda
+	persona
+	vehiculo
+	usuario
+	estado
+
+comanda_detalle
+	comanda
+	concepto
+	descuento 
+	valor
+	usuario
+
+descuento
+	codigo
+	descripcion
+	porcentaje
+	usuario
+
+lavados
+	comanda
+	equipo
+
+faturacion
+	persona
+	vehiculo
+	usuario
+	estado
+
+faturacion_detalle
+	factura
+	concepto
+	descuento 
+	valor
+	usuario
+
+proveedores
+	codigo
+	persona
+	razon_social
+	nit
+	direccion
+	telefono2
+	telefono1
+	usuario
+
+egresos_diario
+	descripcion
+	proveedor 
+	usuario
+
+remision_detalle
+	egreso
+	concepto
+	descuento 
+	valor
+	usuario
+
+
+
+
+
+
+
+
+
+
+
+
+
