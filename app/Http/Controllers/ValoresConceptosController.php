@@ -104,7 +104,9 @@ class ValoresConceptosController extends AppBaseController
             return redirect(route('valoresConceptos.index'));
         }
 
-        return view('valores_conceptos.edit')->with('valoresConceptos', $valoresConceptos);
+        $Conceptos=Conceptos::pluck('descripcion','id');
+        $datos = ['conceptos' => $Conceptos,'valoresConceptos'=>$valoresConceptos];
+        return view('valores_conceptos.edit')->with('datos', $datos);
     }
 
     /**

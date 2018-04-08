@@ -27,13 +27,13 @@ Valores_concepto
 	valor integer,99 number
 		required 
 
-combos
+Combos
 	concepto_combo
 	concepto
 	estado
 	usuario
 
-tipo_identificacion
+TipoIdentificacion
 	descripcion
 	usuario
 
