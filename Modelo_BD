@@ -46,11 +46,14 @@ php artisan infyom:scaffold $MODEL_NAME
 		required
 	users_id integer:unsigned:foreign,users,id hidden
 
-Combos
-	concepto_combo
-	concepto
-	estado
-	usuario
+*Combos
+	concepto_combo char,100 text
+		required
+	concepto_id integer:unsigned:foreign,conceptos,id select
+		required
+	estado_id integer:unsigned:foreign,estados,id select
+		required
+	users_id integer:unsigned:foreign,users,id hidden
 
 *TipoIdentificacion
 	descripcion mediumText textarea

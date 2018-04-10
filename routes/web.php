@@ -40,3 +40,5 @@ Route::resource('valoresConceptos', 'ValoresConceptoController');
 Route::resource('tipoIdentificacions', 'TipoIdentificacionController');
 
 Route::resource('personas', 'PersonasController');
+
+Route::resource('combos', 'CombosController');
