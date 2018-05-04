@@ -19,26 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::resource('categorias', 'CategoriasController');
 
+Route::resource('tipoServicios', 'TipoServiciosController');
 
-Route::resource('roles', 'RolesController');
-
-Route::resource('usuariosRols', 'UsuariosRolController');
-
-Route::resource('usuarios', 'UsuariosController');
-
-Route::resource('estados', 'EstadosController');
-
-Route::resource('tipoConceptos', 'TipoConceptosController');
-
-Route::resource('conceptos', 'ConceptosController');
-
-Route::resource('permisos', 'PermisosController');
-
-Route::resource('valoresConceptos', 'ValoresConceptoController');
-
-Route::resource('tipoIdentificacions', 'TipoIdentificacionController');
-
-Route::resource('personas', 'PersonasController');
-
-Route::resource('combos', 'CombosController');
+Route::resource('servicios', 'ServiciosController');

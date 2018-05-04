@@ -11,12 +11,12 @@
             </div>
             <div class="pull-left info">
                 @if (Auth::guest())
-                <p>CarWash-Soft</p>
+                <p>iMonteria</p>
                 @else
                     <p>{{ Auth::user()->name}}</p>
                 @endif
                 <!-- Status -->
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="#"><i class="fa fa-circle text-success"></i> En línea</a>
             </div>
         </div>
 
