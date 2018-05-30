@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCategoriasRequest;
 use App\Repositories\CategoriasRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -73,8 +74,11 @@ class CategoriasController extends AppBaseController
      */
     public function show($id)
     {
-        $categorias = $this->categoriasRepository->findWithoutFail($id);
-
+        //$categorias = $this->categoriasRepository->findWithoutFail($id);
+        $categorias = DB::select('
+                SELECT c.id,c.descripcion, e.descripcion as elementos_id, c.icono,c.created_at,c.updated_at FROM categorias c, elementos e,  categorias_elementos ce
+                WHERE c.id=ce.categorias_id AND e.id=ce.elementos_id AND c.id='.$id
+        );
         if (empty($categorias)) {
             Flash::error('Categoría no encontrada');
 

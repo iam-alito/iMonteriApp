@@ -1,6 +1,6 @@
 <!-- Tipo Servicios Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tipo_servicios_id', 'Tipo Servicios Id:') !!}
+    {!! Form::label('tipo_servicios_id', 'Tipo de Servicio:') !!}
     {!! Form::select('tipo_servicios_id',$datos['tipos'], ['class' => 'form-control']) !!}
 </div>
 
@@ -21,7 +21,7 @@
     {!! Form::label('icono', 'Icono:') !!}
     {!! Form::text('icono',$datos['servicios']->icono, ['class' => 'form-control']) !!}
     <br>
-    <img src="{{$datos['servicios']->icono}}" width="50">
+    <img src="{{$datos['servicios']->icono}}" width="100">
 </div>
 
 <!-- Submit Field -->

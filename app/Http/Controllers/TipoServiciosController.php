@@ -59,7 +59,7 @@ class TipoServiciosController extends AppBaseController
 
         $tipoServicios = $this->tipoServiciosRepository->create($input);
 
-        Flash::success('Tipo Servicios saved successfully.');
+        Flash::success('Tipo de Servicio agregado exitosamente.');
 
         return redirect(route('tipoServicios.index'));
     }

@@ -8,6 +8,7 @@ use App\Repositories\ServiciosRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Models\tipoServicios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -30,9 +31,14 @@ class ServiciosController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->serviciosRepository->pushCriteria(new RequestCriteria($request));
+        /*$this->serviciosRepository->pushCriteria(new RequestCriteria($request));
         $servicios = $this->serviciosRepository->all();
-        $tipo_servicios=tipoServicios::pluck('descripcion','id');
+        $tipo_servicios=tipoServicios::pluck('descripcion','id');*/
+        $servicios = DB::select('
+                SELECT s.id, ts.descripcion as tipo_servicios_id, s.descripcion, s.valor, s.icono
+                FROM servicios s, tipo_servicios ts
+                WHERE s.tipo_servicios_id=ts.id'
+        );
         return view('servicios.index')
             ->with('servicios', $servicios);
     }
@@ -62,7 +68,7 @@ class ServiciosController extends AppBaseController
 
         $servicios = $this->serviciosRepository->create($input);
 
-        Flash::success('Servicios saved successfully.');
+        Flash::success('Servicios agregada exitosamente.');
 
         return redirect(route('servicios.index'));
     }
@@ -76,10 +82,15 @@ class ServiciosController extends AppBaseController
      */
     public function show($id)
     {
-        $servicios = $this->serviciosRepository->findWithoutFail($id);
+    $servicios = DB::select('
+                SELECT s.id, ts.descripcion as tipo_servicios_id, s.descripcion, s.valor, s.icono,s.created_at,s.updated_at
+                FROM servicios s, tipo_servicios ts
+                WHERE s.tipo_servicios_id=ts.id'
+        );
+        //$servicios = $this->serviciosRepository->findWithoutFail($id);
 
         if (empty($servicios)) {
-            Flash::error('Servicios not found');
+            Flash::error('Servicios no encontrado');
 
             return redirect(route('servicios.index'));
         }
@@ -100,7 +111,7 @@ class ServiciosController extends AppBaseController
         $tipo_servicios=tipoServicios::pluck('descripcion','id');
         $datos = ['tipos' => $tipo_servicios];
         if (empty($servicios)) {
-            Flash::error('Servicios not found');
+            Flash::error('Servicios no encontrado');
 
             return redirect(route('servicios.index'));
         }
@@ -122,14 +133,14 @@ class ServiciosController extends AppBaseController
         $servicios = $this->serviciosRepository->findWithoutFail($id);
 
         if (empty($servicios)) {
-            Flash::error('Servicios not found');
+            Flash::error('Servicios no encontrado');
 
             return redirect(route('servicios.index'));
         }
 
         $servicios = $this->serviciosRepository->update($request->all(), $id);
 
-        Flash::success('Servicios updated successfully.');
+        Flash::success('Servicios actualizado exitosamente.');
 
         return redirect(route('servicios.index'));
     }
@@ -146,14 +157,14 @@ class ServiciosController extends AppBaseController
         $servicios = $this->serviciosRepository->findWithoutFail($id);
 
         if (empty($servicios)) {
-            Flash::error('Servicios not found');
+            Flash::error('Servicios no encontrado');
 
             return redirect(route('servicios.index'));
         }
 
         $this->serviciosRepository->delete($id);
 
-        Flash::success('Servicios deleted successfully.');
+        Flash::success('Servicios eliminado exitosamente.');
 
         return redirect(route('servicios.index'));
     }

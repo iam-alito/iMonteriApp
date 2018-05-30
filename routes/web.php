@@ -24,3 +24,19 @@ Route::resource('categorias', 'CategoriasController');
 Route::resource('tipoServicios', 'TipoServiciosController');
 
 Route::resource('servicios', 'ServiciosController');
+
+Route::resource('elementos', 'ElementosController');
+
+Route::resource('catElementos', 'Cat_ElementosController');
+
+Route::resource('categoriasElementos', 'CategoriasElementosController');
+
+Route::resource('fotos', 'FotosController');
+
+Route::resource('serviciosElementos', 'ServiciosElementosController');
+
+Route::resource('favoritosElementos', 'FavoritosElementosController');
+
+Route::resource('favoritosElementos', 'FavoritosElementosController');
+
+Route::resource('comentarios', 'ComentariosController');
